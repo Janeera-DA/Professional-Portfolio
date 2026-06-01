@@ -17,301 +17,202 @@
     --bg: #ffffff;
     --bg-soft: #f7fbfc;
     --border: #d4e8ee;
-    --card-bg: #ffffff;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.7;
-    font-size: 16px;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; font-size: 16px; }
 
   /* ── NAV ── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--teal);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2rem;
-    height: 60px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  }
-  .nav-logo {
-    color: #fff; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.01em;
-  }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--teal); display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; height: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .nav-logo { color: #fff; font-weight: 700; font-size: 1.05rem; white-space: nowrap; }
   .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 0.25rem; }
-  .nav-links a {
-    color: rgba(255,255,255,0.85); text-decoration: none;
-    padding: 0.4rem 0.9rem; border-radius: 6px;
-    font-size: 0.88rem; font-weight: 500; transition: all 0.18s;
-  }
+  .nav-links { display: flex; gap: 0.1rem; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; transition: all 0.18s; white-space: nowrap; }
   .nav-links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.2s; }
+  .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--teal-dark); flex-direction: column; padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 99; }
+  .mobile-menu a { color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.85rem 1.5rem; font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08); display: block; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu.open { display: flex; }
 
   /* ── SECTIONS ── */
-  section { padding: 5rem 2rem; }
+  section { padding: 4rem 1.5rem; }
   .container { max-width: 960px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
-  }
-  h2.section-title {
-    font-size: 2rem; font-weight: 800; color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-  .divider {
-    width: 48px; height: 4px; background: var(--gold);
-    border-radius: 2px; margin-bottom: 2.5rem;
-  }
+  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+  h2.section-title { font-size: 1.9rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
+  .divider { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin-bottom: 2.5rem; }
 
   /* ── HERO ── */
-  #home {
-    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #1a7a6e 100%);
-    color: #fff; padding: 6rem 2rem 5rem; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  #home::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 70% 30%, rgba(201,149,42,0.18) 0%, transparent 60%);
-  }
-  .hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
-  .hero-avatar {
-    width: 100px; height: 100px; border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-    border: 3px solid var(--gold);
-    margin: 0 auto 1.5rem;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.2rem; font-weight: 800; color: #fff; letter-spacing: -1px;
-  }
-  #home h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 0.5rem; }
-  .hero-title {
-    font-size: 1.15rem; color: rgba(255,255,255,0.85);
-    margin-bottom: 0.75rem; font-weight: 400;
-  }
-  .hero-location {
-    font-size: 0.88rem; color: rgba(255,255,255,0.65); margin-bottom: 2rem;
-  }
-  .badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 2.5rem; }
-  .badge {
-    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
-    color: #fff; padding: 0.35rem 0.85rem; border-radius: 999px;
-    font-size: 0.82rem; font-weight: 500;
-  }
+  #home { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #1a7a6e 100%); color: #fff; padding: 4rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+  #home::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(201,149,42,0.18) 0%, transparent 60%); }
+  .hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+  .hero-avatar { width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 3px solid var(--gold); margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; color: #fff; }
+  #home h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.2; }
+  .hero-title { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 0.6rem; font-weight: 400; }
+  .hero-location { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 1.75rem; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; }
+  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 0.3rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 500; }
   .badge.gold { background: rgba(201,149,42,0.25); border-color: var(--gold); color: #faeeda; }
-  .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--gold); color: #1a2e35; padding: 0.75rem 2rem;
-    border-radius: 8px; text-decoration: none; font-weight: 700;
-    font-size: 0.95rem; transition: all 0.18s;
-  }
+  .cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: #1a2e35; padding: 0.7rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: all 0.18s; }
   .btn-primary:hover { background: #e0a82e; }
-  .btn-outline {
-    border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 0.75rem 2rem;
-    border-radius: 8px; text-decoration: none; font-weight: 600;
-    font-size: 0.95rem; transition: all 0.18s;
-  }
+  .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 0.7rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.92rem; transition: all 0.18s; }
   .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 
   /* ── STATS ── */
-  .stats-bar {
-    background: var(--teal-dark); padding: 1.75rem 2rem;
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
-  }
-  .stat {
-    text-align: center; padding: 0.5rem 2.5rem;
-    border-right: 1px solid rgba(255,255,255,0.15);
-    color: #fff;
-  }
+  .stats-bar { background: var(--teal-dark); padding: 1.5rem 1rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 0; }
+  .stat { text-align: center; padding: 0.5rem 1.75rem; border-right: 1px solid rgba(255,255,255,0.15); color: #fff; }
   .stat:last-child { border-right: none; }
-  .stat-n { font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; }
-  .stat-l { font-size: 0.78rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.2rem; }
+  .stat-n { font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; }
+  .stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
 
   /* ── ABOUT ── */
   #about { background: var(--bg-soft); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-  .about-bio p { font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.8; }
-  .about-bio p:first-child { color: var(--text); font-size: 1.05rem; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+  .about-bio p { font-size: 0.97rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.8; }
+  .about-bio p:first-child { color: var(--text); font-size: 1rem; }
   .about-bio strong { color: var(--text); }
-  .quick-facts { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
-  .quick-facts h3 {
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-muted); margin-bottom: 1rem; font-weight: 700;
-  }
-  .fact-row { display: flex; gap: 0.75rem; margin-bottom: 0.65rem; font-size: 0.9rem; align-items: flex-start; }
-  .fact-icon { width: 20px; flex-shrink: 0; color: var(--teal); font-size: 1rem; margin-top: 1px; }
-  .fact-label { color: var(--text-muted); min-width: 80px; }
+  .quick-facts { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.35rem; }
+  .quick-facts h3 { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; font-weight: 700; }
+  .fact-row { display: flex; gap: 0.65rem; margin-bottom: 0.6rem; font-size: 0.88rem; align-items: flex-start; }
+  .fact-icon { width: 18px; flex-shrink: 0; color: var(--teal); margin-top: 2px; }
+  .fact-label { color: var(--text-muted); min-width: 72px; }
   .fact-val { font-weight: 600; color: var(--text); }
-  .philosophy-box {
-    margin-top: 2.5rem; padding: 1.75rem;
-    background: #fff; border-radius: 12px;
-    border-left: 4px solid var(--gold);
-    border-top: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .philosophy-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text); }
-  .philosophy-box p { color: var(--text-muted); font-size: 0.95rem; }
+  .philosophy-box { margin-top: 2rem; padding: 1.5rem; background: #fff; border-radius: 12px; border-left: 4px solid var(--gold); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .philosophy-box h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+  .philosophy-box p { color: var(--text-muted); font-size: 0.92rem; }
 
   /* ── EXPERIENCE ── */
   #experience { background: #fff; }
-  .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-  .tab {
-    padding: 0.4rem 1.1rem; border-radius: 999px; border: 2px solid var(--teal);
-    background: transparent; color: var(--teal); font-weight: 600;
-    cursor: pointer; font-size: 0.875rem; transition: all 0.18s;
-  }
+  .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .tab { padding: 0.4rem 1.1rem; border-radius: 999px; border: 2px solid var(--teal); background: transparent; color: var(--teal); font-weight: 600; cursor: pointer; font-size: 0.85rem; transition: all 0.18s; }
   .tab.active, .tab:hover { background: var(--teal); color: #fff; }
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-  .tl-item {
-    display: grid; grid-template-columns: 200px 1fr;
-    gap: 0 2rem; position: relative; padding-bottom: 2.5rem;
-  }
+  .timeline { display: flex; flex-direction: column; }
+  .tl-item { display: grid; grid-template-columns: 190px 1fr; gap: 0 1.75rem; position: relative; padding-bottom: 2.25rem; }
   .tl-left { text-align: right; padding-top: 0.1rem; }
-  .tl-date { font-size: 0.82rem; font-weight: 600; color: var(--teal); white-space: nowrap; }
-  .tl-loc { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
-  .tl-right { position: relative; padding-left: 1.5rem; border-left: 2px solid var(--border); }
-  .tl-right::before {
-    content: ''; position: absolute; left: -7px; top: 6px;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--teal); border: 2px solid #fff;
-    box-shadow: 0 0 0 2px var(--teal);
-  }
-  .tl-role { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.15rem; }
-  .tl-company {
-    font-size: 0.88rem; font-weight: 600; color: var(--teal);
-    margin-bottom: 0.75rem;
-  }
+  .tl-date { font-size: 0.8rem; font-weight: 600; color: var(--teal); }
+  .tl-loc { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
+  .tl-right { position: relative; padding-left: 1.35rem; border-left: 2px solid var(--border); }
+  .tl-right::before { content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--teal); }
+  .tl-role { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.1rem; }
+  .tl-company { font-size: 0.86rem; font-weight: 600; color: var(--teal); margin-bottom: 0.65rem; }
   .tl-bullets { list-style: none; padding: 0; }
-  .tl-bullets li {
-    font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.45rem;
-    padding-left: 1.1rem; position: relative; line-height: 1.6;
-  }
-  .tl-bullets li::before {
-    content: ''; position: absolute; left: 0; top: 0.55em;
-    width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
-  }
+  .tl-bullets li { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.4rem; padding-left: 1rem; position: relative; line-height: 1.6; }
+  .tl-bullets li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
   .tl-item[data-type="academic"] .tl-right::before { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
-  .tl-item[data-type="other"] .tl-right::before { background: var(--text-muted); box-shadow: 0 0 0 2px var(--text-muted); }
   .tl-item.hidden { display: none; }
-  .edu-grid { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 3.5rem; }
-  .edu-card {
-    background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px;
-    padding: 1rem 1.25rem; display: flex; justify-content: space-between;
-    align-items: center; flex-wrap: wrap; gap: 0.5rem;
-  }
-  .edu-deg { font-weight: 700; font-size: 0.95rem; color: var(--text); }
-  .edu-school { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem; }
-  .edu-year {
-    background: rgba(13,110,138,0.1); color: var(--teal);
-    padding: 0.3rem 0.9rem; border-radius: 999px;
-    font-size: 0.8rem; font-weight: 600; white-space: nowrap;
-  }
+  .edu-grid { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 3rem; }
+  .edu-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .edu-deg { font-weight: 700; font-size: 0.93rem; color: var(--text); }
+  .edu-school { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
+  .edu-year { background: rgba(13,110,138,0.1); color: var(--teal); padding: 0.25rem 0.85rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
 
   /* ── SKILLS ── */
   #skills { background: var(--bg-soft); }
-  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
-  .skill-card {
-    background: #fff; border: 1px solid var(--border); border-radius: 12px;
-    padding: 1.5rem;
-  }
-  .skill-card-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .skill-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text); }
-  .pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .pill {
-    background: var(--teal-light); color: var(--teal-dark);
-    padding: 0.25rem 0.65rem; border-radius: 999px;
-    font-size: 0.78rem; font-weight: 600;
-  }
-  .proficiency { max-width: 600px; margin-top: 3rem; }
-  .prof-row { margin-bottom: 1.25rem; }
-  .prof-label { display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); }
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem; }
+  .skill-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.35rem; }
+  .skill-card-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .skill-card-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.65rem; color: var(--text); }
+  .pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .pill { background: var(--teal-light); color: var(--teal-dark); padding: 0.22rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+  .proficiency { max-width: 580px; margin-top: 2.5rem; }
+  .prof-row { margin-bottom: 1.1rem; }
+  .prof-label { display: flex; justify-content: space-between; font-size: 0.87rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text); }
   .prof-pct { color: var(--text-muted); }
   .prof-track { background: var(--border); border-radius: 999px; height: 8px; overflow: hidden; }
   .prof-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--teal-mid)); border-radius: 999px; }
-  .lang-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
-  .lang-card {
-    background: #fff; border: 1px solid var(--border); border-radius: 10px;
-    padding: 0.75rem 1.1rem; min-width: 140px;
-  }
-  .lang-name { font-weight: 700; font-size: 0.92rem; color: var(--text); }
-  .lang-level { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+  .lang-grid { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 2rem; }
+  .lang-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1rem; min-width: 130px; }
+  .lang-name { font-weight: 700; font-size: 0.9rem; color: var(--text); }
+  .lang-level { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; }
 
   /* ── ACHIEVEMENTS ── */
   #achievements { background: #fff; }
-  .award-card {
-    display: flex; gap: 1.25rem; align-items: flex-start;
-    padding: 1.25rem; background: var(--bg-soft);
-    border: 1px solid var(--border); border-radius: 12px; margin-bottom: 1rem;
-  }
-  .award-icon { font-size: 2rem; flex-shrink: 0; width: 48px; text-align: center; }
-  .award-title { font-weight: 700; font-size: 1rem; color: var(--text); }
-  .award-org { font-size: 0.85rem; color: var(--teal); font-weight: 600; margin-top: 0.15rem; }
-  .award-desc { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.6; }
-  .cert-list { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
-  .cert-item {
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 0.5rem;
-    background: var(--bg-soft); border: 1px solid var(--border);
-    border-radius: 8px; padding: 0.75rem 1.1rem;
-  }
-  .cert-name { font-weight: 600; font-size: 0.9rem; color: var(--text); }
-  .cert-badge {
-    background: rgba(13,110,138,0.1); color: var(--teal);
-    padding: 0.2rem 0.7rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;
-  }
-  .pub-list { padding-left: 1.25rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.45rem; }
-  .pub-list li { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
-  .research-nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-  .res-card {
-    background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px;
-    padding: 1.25rem 1rem; text-align: center;
-  }
-  .res-num { font-size: 2rem; font-weight: 800; color: var(--teal); line-height: 1; }
-  .res-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-top: 0.3rem; }
+  .award-card { display: flex; gap: 1.1rem; align-items: flex-start; padding: 1.1rem; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 0.85rem; }
+  .award-icon { font-size: 1.75rem; flex-shrink: 0; width: 44px; text-align: center; }
+  .award-title { font-weight: 700; font-size: 0.97rem; color: var(--text); }
+  .award-org { font-size: 0.82rem; color: var(--teal); font-weight: 600; margin-top: 0.1rem; }
+  .award-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.6; }
+  .cert-list { display: flex; flex-direction: column; gap: 0.55rem; margin-top: 1.25rem; }
+  .cert-item { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 1rem; }
+  .cert-name { font-weight: 600; font-size: 0.88rem; color: var(--text); }
+  .cert-badge { background: rgba(13,110,138,0.1); color: var(--teal); padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 0.73rem; font-weight: 600; white-space: nowrap; }
+  .research-nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.85rem; margin: 1.25rem 0; }
+  .res-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 0.75rem; text-align: center; }
+  .res-num { font-size: 1.8rem; font-weight: 800; color: var(--teal); line-height: 1; }
+  .res-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-top: 0.25rem; }
+  .pub-list { padding-left: 1.1rem; margin-top: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .pub-list li { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+  .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem; }
+  .rec-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.35rem; display: flex; flex-direction: column; gap: 1rem; }
+  .rec-quote { font-size: 0.9rem; color: var(--text); line-height: 1.75; font-style: italic; position: relative; padding-left: 1rem; border-left: 3px solid var(--gold); }
+  .rec-author { display: flex; align-items: center; gap: 0.75rem; }
+  .rec-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; }
+  .rec-name { font-weight: 700; font-size: 0.88rem; color: var(--text); }
+  .rec-role { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; }
 
   /* ── CONTACT ── */
-  #contact {
-    background: linear-gradient(135deg, var(--teal-dark), var(--teal));
-    color: #fff; text-align: center;
-  }
+  #contact { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: #fff; text-align: center; }
   #contact .section-label { color: var(--gold); }
   #contact h2 { color: #fff; }
-  #contact p { color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 2.5rem; }
-  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .contact-link {
-    padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none;
-    font-weight: 700; font-size: 0.95rem; transition: all 0.18s;
-  }
+  #contact p { color: rgba(255,255,255,0.8); max-width: 480px; margin: 0 auto 2rem; font-size: 0.97rem; }
+  .contact-links { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link { padding: 0.7rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: all 0.18s; }
   .contact-link.gold { background: var(--gold); color: #1a2e35; }
   .contact-link.gold:hover { background: #e0a82e; }
   .contact-link.outline { border: 2px solid rgba(255,255,255,0.6); color: #fff; }
   .contact-link.outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
   /* ── FOOTER ── */
-  footer {
-    background: var(--teal-dark); color: rgba(255,255,255,0.5);
-    text-align: center; padding: 1.5rem 2rem; font-size: 0.82rem;
-  }
+  footer { background: var(--teal-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.25rem 1.5rem; font-size: 0.8rem; }
   footer a { color: var(--gold); text-decoration: none; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 680px) {
-    #home h1 { font-size: 2rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .tl-item { grid-template-columns: 1fr; }
-    .tl-left { text-align: left; margin-bottom: 0.25rem; }
-    nav { padding: 0 1rem; }
-    .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
-    .stat { padding: 0.5rem 1.25rem; }
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    #home { padding: 3rem 1.25rem; }
+    #home h1 { font-size: 1.8rem; }
+    .hero-title { font-size: 0.92rem; }
+    .hero-avatar { width: 76px; height: 76px; font-size: 1.7rem; }
+    .badge { font-size: 0.72rem; padding: 0.25rem 0.6rem; }
+    .btn-primary, .btn-outline { padding: 0.65rem 1.35rem; font-size: 0.87rem; width: 100%; text-align: center; }
+    .cta-row { flex-direction: column; align-items: center; }
+
+    .stats-bar { gap: 0; padding: 0; }
+    .stat { padding: 1rem 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); width: 50%; }
+    .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
+    .stat:last-child { border-bottom: none; }
+    .stat-n { font-size: 1.6rem; }
+
+    section { padding: 3rem 1.25rem; }
+    h2.section-title { font-size: 1.55rem; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+
+    .tl-item { grid-template-columns: 1fr; padding-bottom: 1.75rem; }
+    .tl-left { text-align: left; margin-bottom: 0.3rem; padding-left: 1.35rem; }
+    .tl-right { border-left: 2px solid var(--border); }
+
+    .skill-grid { grid-template-columns: 1fr; }
+
+    .edu-card { flex-direction: column; align-items: flex-start; }
+
+    .cert-item { flex-direction: column; align-items: flex-start; }
+
+    .contact-link { width: 100%; text-align: center; }
+    .contact-links { flex-direction: column; align-items: center; max-width: 280px; margin: 0 auto; }
+  }
+
+  @media (max-width: 400px) {
+    #home h1 { font-size: 1.55rem; }
+    .stat { width: 100%; border-right: none !important; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Janeera <span>D A</span></div>
   <div class="nav-links">
@@ -321,19 +222,28 @@
     <a href="#achievements">Achievements</a>
     <a href="#contact">Contact</a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#achievements" onclick="closeMenu()">Achievements</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
-<!-- HERO -->
 <section id="home">
   <div class="hero-inner">
     <div class="hero-avatar">JA</div>
     <h1>Janeera D A</h1>
     <p class="hero-title">Senior Lead Technical Writer · SaaS & Developer Docs · AI-Augmented Workflows</p>
-    <p class="hero-location">📍 Coimbatore, Tamil Nadu, India &nbsp;·&nbsp; janeerada@gmail.com</p>
+    <p class="hero-location">📍 Coimbatore, Tamil Nadu, India · janeerada@gmail.com</p>
     <div class="badge-row">
       <span class="badge">10+ Years Experience</span>
       <span class="badge">PhD in Electronics & Communications</span>
-      <span class="badge gold">🏆 The Highflyer Award</span>
+      <span class="badge gold">🌍 Global Writers Award 2026</span>
       <span class="badge">Docs-as-Code Expert</span>
       <span class="badge">API Documentation</span>
     </div>
@@ -344,7 +254,6 @@
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Years Experience</div></div>
   <div class="stat"><div class="stat-n">8+</div><div class="stat-l">Publications</div></div>
@@ -353,7 +262,6 @@
   <div class="stat"><div class="stat-n">5</div><div class="stat-l">Certifications</div></div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <p class="section-label">Who I Am</p>
@@ -367,7 +275,7 @@
         <p>My engineering background gives me an uncommon ability to read source code, parse product specs, and ask the right questions of engineering teams. Previously an <strong>assistant professor and published researcher</strong> (8 papers, 2 patents), I bring the ability to absorb deeply technical material and make it clear, accurate, and findable.</p>
         <div class="philosophy-box">
           <h3>My Documentation Philosophy</h3>
-          <p>I follow the <strong>Diátaxis framework</strong> — structuring content into tutorials, how-to guides, explanations, and references — and combine it with analytics (GA4, Hotjar, Clarity) to let actual user behaviour guide what gets written, updated, or retired. Documentation should be <em>discoverable, accurate, and alive</em>.</p>
+          <p>I follow the <strong>Diátaxis framework</strong> — structuring content into tutorials, how-to guides, explanations, and references — combined with analytics (GA4, Hotjar, Clarity) to let actual user behaviour guide what gets written, updated, or retired.</p>
         </div>
       </div>
       <div>
@@ -378,7 +286,7 @@
           <div class="fact-row"><span class="fact-icon">🔗</span><span class="fact-label">LinkedIn</span><span class="fact-val"><a href="https://www.linkedin.com/in/janeera" target="_blank" style="color:var(--teal)">linkedin.com/in/janeera</a></span></div>
           <div class="fact-row"><span class="fact-icon">🎓</span><span class="fact-label">Education</span><span class="fact-val">PhD · ME · BE (Engineering)</span></div>
           <div class="fact-row"><span class="fact-icon">🏢</span><span class="fact-label">Current</span><span class="fact-val">Senior Lead Technical Writer, Kovai.co</span></div>
-          <div class="fact-row"><span class="fact-icon">🌐</span><span class="fact-label">Remote</span><span class="fact-val">Yes — experienced with distributed teams</span></div>
+          <div class="fact-row"><span class="fact-icon">🌐</span><span class="fact-label">Remote</span><span class="fact-val">Yes — distributed team experience</span></div>
           <div class="fact-row"><span class="fact-icon">💬</span><span class="fact-label">Languages</span><span class="fact-val">English, Hindi, Kannada, Tamil, Malayalam</span></div>
         </div>
       </div>
@@ -386,219 +294,132 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <p class="section-label">Career</p>
     <h2 class="section-title">Experience</h2>
     <div class="divider"></div>
-
     <div class="filter-tabs">
       <button class="tab active" onclick="filterTimeline('all', this)">All Roles</button>
       <button class="tab" onclick="filterTimeline('industry', this)">Industry</button>
       <button class="tab" onclick="filterTimeline('academic', this)">Academic</button>
     </div>
-
     <div class="timeline">
-
       <div class="tl-item" data-type="industry">
-        <div class="tl-left">
-          <div class="tl-date">Jan 2026 – Present</div>
-          <div class="tl-loc">Coimbatore</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Jan 2026 – Present</div><div class="tl-loc">Coimbatore</div></div>
         <div class="tl-right">
           <div class="tl-role">Senior Lead Technical Writer</div>
           <div class="tl-company">Kovai.co</div>
           <ul class="tl-bullets">
-            <li>Own end-to-end documentation strategy for Document360 and Floik — covering user guides, API docs, in-app microcopy, release notes, troubleshooting guides, and LMS onboarding content.</li>
+            <li>Own end-to-end documentation strategy for Document360 and Floik — user guides, API docs, in-app microcopy, release notes, troubleshooting guides, and LMS onboarding content.</li>
             <li>Lead, mentor, and onboard a team of technical writers; define documentation standards, review workflows, and style guide governance across all content touchpoints.</li>
-            <li>Run AI-augmented documentation audits using Claude via MCP — automating search-gap analysis against support ticket patterns to identify and close content holes before they generate user friction.</li>
-            <li>Collaborate with Product, Engineering, Design, Support, and Marketing to align docs with product roadmaps and user journeys; represent documentation in release readiness reviews.</li>
+            <li>Run AI-augmented documentation audits using Claude via MCP — automating search-gap analysis against support ticket patterns to close content holes before they generate user friction.</li>
+            <li>Collaborate with Product, Engineering, Design, Support, and Marketing to align docs with product roadmaps; represent documentation in release readiness reviews.</li>
             <li>Build structured onboarding and scalable learning content for LMS and product enablement initiatives.</li>
           </ul>
         </div>
       </div>
-
       <div class="tl-item" data-type="industry">
-        <div class="tl-left">
-          <div class="tl-date">Jan 2025 – Dec 2025</div>
-          <div class="tl-loc">Coimbatore</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Jan 2025 – Dec 2025</div><div class="tl-loc">Coimbatore</div></div>
         <div class="tl-right">
           <div class="tl-role">Lead Technical Writer</div>
           <div class="tl-company">Kovai.co</div>
           <ul class="tl-bullets">
             <li>Managed and mentored a team of writers, coordinating documentation pipelines across sprint cycles using Agile/Scrum methodology.</li>
             <li>Planned, created, reviewed, and published release notes, troubleshooting guides, knowledge base articles, and UI text — ensuring accuracy, consistency, and style guide compliance.</li>
-            <li>Conducted quarterly content audits; analysed user search patterns and support ticket data to continuously improve documentation coverage and findability.</li>
+            <li>Conducted quarterly content audits; analysed user search patterns and support ticket data to improve documentation coverage and findability.</li>
             <li>Developed and managed product blog content aligned to Document360's value proposition and SEO strategy.</li>
           </ul>
         </div>
       </div>
-
       <div class="tl-item" data-type="industry">
-        <div class="tl-left">
-          <div class="tl-date">Apr 2024 – Dec 2024</div>
-          <div class="tl-loc">Coimbatore</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Apr 2024 – Dec 2024</div><div class="tl-loc">Coimbatore</div></div>
         <div class="tl-right">
           <div class="tl-role">Senior Technical Writer</div>
           <div class="tl-company">Kovai.co</div>
           <ul class="tl-bullets">
-            <li>Authored product documentation and curated in-app UX microcopy for software interfaces, ensuring tone, consistency, and clarity across all user touchpoints.</li>
+            <li>Authored product documentation and curated in-app UX microcopy ensuring tone, consistency, and clarity across all user touchpoints.</li>
             <li>Leveraged Appcues to build in-app workflows and feature adoption announcements; used Canny for feedback management and roadmap planning.</li>
             <li>Used Snagit to create annotated screenshots and GIFs; maintained a high-quality visual standards library.</li>
           </ul>
         </div>
       </div>
-
       <div class="tl-item" data-type="industry">
-        <div class="tl-left">
-          <div class="tl-date">Apr 2023 – Apr 2024</div>
-          <div class="tl-loc">Madurai</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Apr 2023 – Apr 2024</div><div class="tl-loc">Madurai</div></div>
         <div class="tl-right">
           <div class="tl-role">Senior Technical Writer</div>
           <div class="tl-company">Aptean</div>
           <ul class="tl-bullets">
             <li>Documented products on Microsoft Dynamics 365 Business Central — user manuals, tooltips, release notes, and troubleshooting guides compliant with the Microsoft Writing Style Guide.</li>
             <li>Maintained docs in a docs-as-code workflow using Docusaurus, Git, and Markdown — managing version control, branching, and deployment pipelines.</li>
-            <li>Facilitated daily Scrum stand-ups; monitored sprint backlogs and coordinated documentation delivery against release schedules.</li>
             <li>Mentored and onboarded new writers; created training content using Loom, Camtasia, and ClickLearn.</li>
           </ul>
         </div>
       </div>
-
       <div class="tl-item" data-type="industry">
-        <div class="tl-left">
-          <div class="tl-date">Aug 2021 – Mar 2023</div>
-          <div class="tl-loc">Madurai</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Aug 2021 – Mar 2023</div><div class="tl-loc">Madurai</div></div>
         <div class="tl-right">
           <div class="tl-role">Technical Writer</div>
           <div class="tl-company">Aptean</div>
           <ul class="tl-bullets">
-            <li>Created comprehensive documentation throughout the SDLC using Agile methodology — user guides, tooltips, release notes, FAQs, and procedural documentation for enterprise software.</li>
-            <li>Collaborated with cross-functional teams including product owners, developers, UI engineers, and SMEs to ensure documentation accuracy.</li>
+            <li>Created comprehensive documentation throughout the SDLC — user guides, tooltips, release notes, FAQs, and procedural documentation for enterprise software.</li>
             <li>Proficient in MadCap Flare, SharePoint, Microsoft Word, and Visio; maintained information architecture across large documentation sets.</li>
+            <li>Collaborated with cross-functional teams including product owners, developers, UI engineers, and SMEs to ensure documentation accuracy.</li>
           </ul>
         </div>
       </div>
-
       <div class="tl-item" data-type="academic">
-        <div class="tl-left">
-          <div class="tl-date">Jun 2016 – Aug 2021</div>
-          <div class="tl-loc">Coimbatore</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Jun 2016 – Aug 2021</div><div class="tl-loc">Coimbatore</div></div>
         <div class="tl-right">
           <div class="tl-role">Assistant Professor</div>
           <div class="tl-company">Sri Krishna College of Engineering and Technology</div>
           <ul class="tl-bullets">
             <li>Delivered courses in Robotics, Augmented Reality, Digital Electronics, Microprocessors, and VLSI Design.</li>
-            <li>Produced institutional documentation for NBA, NAAC, NIRF, and ARIIA ranking submissions — contributing to an All India 2nd Rank (ARIIA) and NIRF 83rd ranking.</li>
+            <li>Produced institutional documentation for NBA, NAAC, NIRF, and ARIIA — contributing to All India 2nd Rank (ARIIA) and NIRF 83rd ranking.</li>
             <li>Authored research articles, patents, and grant proposals; managed content for the institutional website and social media.</li>
           </ul>
         </div>
       </div>
-
       <div class="tl-item" data-type="academic">
-        <div class="tl-left">
-          <div class="tl-date">Jun 2014 – Jun 2016</div>
-          <div class="tl-loc">Coimbatore</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Jun 2014 – Jun 2016</div><div class="tl-loc">Coimbatore</div></div>
         <div class="tl-right">
           <div class="tl-role">Assistant Professor</div>
           <div class="tl-company">Dhanalakshmi Srinivasan College of Engineering</div>
           <ul class="tl-bullets">
-            <li>Handled theory and lab courses — Digital Signal Processing, Embedded Systems, Advanced Digital System Design, and Digital Communication.</li>
+            <li>Handled courses in Digital Signal Processing, Embedded Systems, Advanced Digital System Design, and Digital Communication.</li>
             <li>Obtained 100% results in Anna University end semester exam for Advanced Digital System Design.</li>
-            <li>Organised the First National Conference on Emerging Trends in Wireless Communication and Network (ETWCN '16); served as jury for the conference.</li>
-            <li>Served as Department NBA Coordinator and Editorial Board member of the department magazine.</li>
+            <li>Organised the First National Conference on Emerging Trends in Wireless Communication and Network (ETWCN '16); served as jury.</li>
           </ul>
         </div>
       </div>
-
     </div>
-
-    <!-- Education -->
-    <p class="section-label" style="margin-top:4rem">Education</p>
-    <h2 class="section-title" style="font-size:1.4rem">Academic Background</h2>
+    <p class="section-label" style="margin-top:3.5rem">Education</p>
+    <h2 class="section-title" style="font-size:1.35rem">Academic Background</h2>
     <div class="divider"></div>
     <div class="edu-grid">
-      <div class="edu-card">
-        <div><div class="edu-deg">🎓 Doctor of Philosophy (PhD), Electronics and Communications Engineering</div><div class="edu-school">Anna University Chennai</div></div>
-        <div class="edu-year">Jan 2019 – Jul 2024</div>
-      </div>
-      <div class="edu-card">
-        <div><div class="edu-deg">🎓 Master of Engineering (M.E.), Applied Electronics</div><div class="edu-school">Sri Krishna College of Engineering and Technology, Coimbatore</div></div>
-        <div class="edu-year">2012 – 2014</div>
-      </div>
-      <div class="edu-card">
-        <div><div class="edu-deg">🎓 B.E., Electronics and Communication Engineering</div><div class="edu-school">Karunya University, Coimbatore</div></div>
-        <div class="edu-year">2007 – 2011</div>
-      </div>
-      <div class="edu-card">
-        <div><div class="edu-deg">📘 HSC — Physics, Chemistry, Maths, Electronics</div><div class="edu-school">Marimallappa's Pre University College, Mysore</div></div>
-        <div class="edu-year">2005 – 2007</div>
-      </div>
+      <div class="edu-card"><div><div class="edu-deg">🎓 PhD, Electronics and Communications Engineering</div><div class="edu-school">Anna University Chennai</div></div><div class="edu-year">Jan 2019 – Jul 2024</div></div>
+      <div class="edu-card"><div><div class="edu-deg">🎓 M.E., Applied Electronics</div><div class="edu-school">Sri Krishna College of Engineering and Technology, Coimbatore</div></div><div class="edu-year">2012 – 2014</div></div>
+      <div class="edu-card"><div><div class="edu-deg">🎓 B.E., Electronics and Communication Engineering</div><div class="edu-school">Karunya University, Coimbatore</div></div><div class="edu-year">2007 – 2011</div></div>
+      <div class="edu-card"><div><div class="edu-deg">📘 HSC — Physics, Chemistry, Maths, Electronics</div><div class="edu-school">Marimallappa's Pre University College, Mysore</div></div><div class="edu-year">2005 – 2007</div></div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <p class="section-label">Expertise</p>
     <h2 class="section-title">Skills & Tools</h2>
     <div class="divider"></div>
-
     <div class="skill-grid">
-      <div class="skill-card">
-        <div class="skill-card-icon">📝</div>
-        <div class="skill-card-title">Documentation & Authoring</div>
-        <div class="pills">
-          <span class="pill">Docs-as-Code</span><span class="pill">Markdown</span><span class="pill">API Documentation</span><span class="pill">Diátaxis Framework</span><span class="pill">Information Architecture</span><span class="pill">Release Notes</span><span class="pill">UX Writing / Microcopy</span><span class="pill">LMS / E-learning</span><span class="pill">Content Governance</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-card-icon">🛠️</div>
-        <div class="skill-card-title">Tools & Platforms</div>
-        <div class="pills">
-          <span class="pill">Docusaurus</span><span class="pill">Document360</span><span class="pill">MadCap Flare</span><span class="pill">Azure DevOps</span><span class="pill">Git / GitHub</span><span class="pill">SharePoint</span><span class="pill">Dynamics 365</span><span class="pill">Appcues</span><span class="pill">Canny</span><span class="pill">ClickLearn</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-card-icon">📊</div>
-        <div class="skill-card-title">Analytics & SEO</div>
-        <div class="pills">
-          <span class="pill">Google Analytics 4</span><span class="pill">Hotjar</span><span class="pill">Microsoft Clarity</span><span class="pill">Content Gap Analysis</span><span class="pill">Semrush SEO</span><span class="pill">Search Pattern Analysis</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-card-icon">🎥</div>
-        <div class="skill-card-title">Visual & Media</div>
-        <div class="pills">
-          <span class="pill">Snagit</span><span class="pill">Camtasia</span><span class="pill">Loom</span><span class="pill">Floik</span><span class="pill">Colossyan</span><span class="pill">Annotated Screenshots</span><span class="pill">GIF Documentation</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-card-icon">🤖</div>
-        <div class="skill-card-title">AI & Automation</div>
-        <div class="pills">
-          <span class="pill">Claude via MCP</span><span class="pill">AI-Augmented Workflows</span><span class="pill">Search-Gap Automation</span><span class="pill">AI Product Documentation</span><span class="pill">Prompt Engineering</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-card-icon">🤝</div>
-        <div class="skill-card-title">Leadership & Process</div>
-        <div class="pills">
-          <span class="pill">Team Leadership</span><span class="pill">Agile / Scrum</span><span class="pill">Content Audits</span><span class="pill">Stakeholder Management</span><span class="pill">Microsoft Style Guide</span><span class="pill">Style Guide Governance</span>
-        </div>
-      </div>
+      <div class="skill-card"><div class="skill-card-icon">📝</div><div class="skill-card-title">Documentation & Authoring</div><div class="pills"><span class="pill">Docs-as-Code</span><span class="pill">Markdown</span><span class="pill">API Documentation</span><span class="pill">Diátaxis Framework</span><span class="pill">Information Architecture</span><span class="pill">Release Notes</span><span class="pill">UX Writing</span><span class="pill">LMS / E-learning</span><span class="pill">Content Governance</span></div></div>
+      <div class="skill-card"><div class="skill-card-icon">🛠️</div><div class="skill-card-title">Tools & Platforms</div><div class="pills"><span class="pill">Docusaurus</span><span class="pill">Document360</span><span class="pill">MadCap Flare</span><span class="pill">Azure DevOps</span><span class="pill">Git / GitHub</span><span class="pill">SharePoint</span><span class="pill">Dynamics 365</span><span class="pill">Appcues</span><span class="pill">Canny</span><span class="pill">ClickLearn</span></div></div>
+      <div class="skill-card"><div class="skill-card-icon">📊</div><div class="skill-card-title">Analytics & SEO</div><div class="pills"><span class="pill">Google Analytics 4</span><span class="pill">Hotjar</span><span class="pill">Microsoft Clarity</span><span class="pill">Content Gap Analysis</span><span class="pill">Semrush SEO</span></div></div>
+      <div class="skill-card"><div class="skill-card-icon">🎥</div><div class="skill-card-title">Visual & Media</div><div class="pills"><span class="pill">Snagit</span><span class="pill">Camtasia</span><span class="pill">Loom</span><span class="pill">Floik</span><span class="pill">Colossyan</span><span class="pill">Annotated Screenshots</span><span class="pill">GIF Documentation</span></div></div>
+      <div class="skill-card"><div class="skill-card-icon">🤖</div><div class="skill-card-title">AI & Automation</div><div class="pills"><span class="pill">Claude via MCP</span><span class="pill">AI-Augmented Workflows</span><span class="pill">Search-Gap Automation</span><span class="pill">AI Product Documentation</span></div></div>
+      <div class="skill-card"><div class="skill-card-icon">🤝</div><div class="skill-card-title">Leadership & Process</div><div class="pills"><span class="pill">Team Leadership</span><span class="pill">Agile / Scrum</span><span class="pill">Content Audits</span><span class="pill">Stakeholder Management</span><span class="pill">Microsoft Style Guide</span></div></div>
     </div>
-
     <div class="proficiency">
-      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem;color:var(--text)">Tool Proficiency</h3>
+      <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:1.1rem;color:var(--text)">Tool Proficiency</h3>
       <div class="prof-row"><div class="prof-label"><span>Markdown</span><span class="prof-pct">98%</span></div><div class="prof-track"><div class="prof-fill" style="width:98%"></div></div></div>
       <div class="prof-row"><div class="prof-label"><span>Docusaurus</span><span class="prof-pct">95%</span></div><div class="prof-track"><div class="prof-fill" style="width:95%"></div></div></div>
       <div class="prof-row"><div class="prof-label"><span>Document360</span><span class="prof-pct">95%</span></div><div class="prof-track"><div class="prof-fill" style="width:95%"></div></div></div>
@@ -607,8 +428,7 @@
       <div class="prof-row"><div class="prof-label"><span>Azure DevOps</span><span class="prof-pct">85%</span></div><div class="prof-track"><div class="prof-fill" style="width:85%"></div></div></div>
       <div class="prof-row"><div class="prof-label"><span>GA4 / Analytics</span><span class="prof-pct">85%</span></div><div class="prof-track"><div class="prof-fill" style="width:85%"></div></div></div>
     </div>
-
-    <h3 style="font-size:1.1rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--text)">Languages</h3>
+    <h3 style="font-size:1.05rem;font-weight:700;margin:2.25rem 0 0.85rem;color:var(--text)">Languages</h3>
     <div class="lang-grid">
       <div class="lang-card"><div class="lang-name">🌐 English</div><div class="lang-level">Full Professional</div></div>
       <div class="lang-card"><div class="lang-name">🌐 Hindi</div><div class="lang-level">Professional Working</div></div>
@@ -619,36 +439,19 @@
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="container">
     <p class="section-label">Recognition</p>
     <h2 class="section-title">Achievements</h2>
     <div class="divider"></div>
-
-    <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:1.1rem;color:var(--text)">🏆 Awards</h3>
-    <div class="award-card">
-      <div class="award-icon">🚀</div>
-      <div><div class="award-title">The Highflyer</div><div class="award-org">Kovai.co · 2025</div><div class="award-desc">Awarded for consistently high performance, leadership, and significant contribution to documentation strategy.</div></div>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">👏</div>
-      <div><div class="award-title">Pat on Back — Cheers</div><div class="award-org">Kovai.co · 2025</div><div class="award-desc">Recognised for outstanding contribution and positive impact on the team and documentation quality.</div></div>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">💎</div>
-      <div><div class="award-title">GEM Award</div><div class="award-org">Kovai.co · 2024</div><div class="award-desc">Awarded for exceptional contribution to documentation excellence and cross-functional collaboration.</div></div>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">🏅</div>
-      <div><div class="award-title">Top Performing Mentor</div><div class="award-org">NPTEL · 2018</div><div class="award-desc">Recognised as a top-performing mentor across NPTEL courses for student engagement and outstanding outcomes.</div></div>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">🎓</div>
-      <div><div class="award-title">Academic Excellence</div><div class="award-org">Sri Krishna College of Engineering and Technology</div><div class="award-desc">Recognised for academic leadership and institutional documentation — contributing to ARIIA All India 2nd Rank and NIRF 83rd ranking.</div></div>
-    </div>
-
-    <h3 style="font-size:1.05rem;font-weight:700;margin:2.5rem 0 0.75rem;color:var(--text)">📜 Certifications</h3>
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text)">🏆 Awards</h3>
+    <div class="award-card" style="border:2px solid var(--gold);background:var(--gold-light)"><div class="award-icon">🌍</div><div><div class="award-title">Document360 Global Writers Award 2025–2026</div><div class="award-org">Document360 · January 2026 · Associated with Kovai.co</div><div class="award-desc">Selected as one of the <strong>Top 50 Awardees</strong> globally for outstanding professional documentation — recognised across three dimensions: <strong>Innovation, Impact, and Influence</strong>.</div></div></div>
+    <div class="award-card"><div class="award-icon">🚀</div><div><div class="award-title">The Highflyer</div><div class="award-org">Kovai.co · 2025</div><div class="award-desc">Awarded for consistently high performance, leadership, and significant contribution to documentation strategy.</div></div></div>
+    <div class="award-card"><div class="award-icon">👏</div><div><div class="award-title">Pat on Back — Cheers</div><div class="award-org">Kovai.co · 2025</div><div class="award-desc">Recognised for outstanding contribution and positive impact on the team and documentation quality.</div></div></div>
+    <div class="award-card"><div class="award-icon">💎</div><div><div class="award-title">GEM Award</div><div class="award-org">Kovai.co · 2024</div><div class="award-desc">Awarded for exceptional contribution to documentation excellence and cross-functional collaboration.</div></div></div>
+    <div class="award-card"><div class="award-icon">🏅</div><div><div class="award-title">Top Performing Mentor</div><div class="award-org">NPTEL · 2018</div><div class="award-desc">Recognised as a top-performing mentor for student engagement and outstanding outcomes.</div></div></div>
+    <div class="award-card"><div class="award-icon">🎓</div><div><div class="award-title">Academic Excellence</div><div class="award-org">Sri Krishna College of Engineering and Technology</div><div class="award-desc">Contributed to ARIIA All India 2nd Rank and NIRF 83rd ranking through institutional documentation leadership.</div></div></div>
+    <h3 style="font-size:1rem;font-weight:700;margin:2.25rem 0 0.65rem;color:var(--text)">📜 Certifications</h3>
     <div class="cert-list">
       <div class="cert-item"><span class="cert-name">AI For Everyone</span><span class="cert-badge">Coursera / DeepLearning.AI</span></div>
       <div class="cert-item"><span class="cert-name">Markdown Mastery: Simple yet Powerful Writing Format</span><span class="cert-badge">Udemy</span></div>
@@ -656,16 +459,14 @@
       <div class="cert-item"><span class="cert-name">Supply Chain: Planning of Resources & Detailed Scheduling</span><span class="cert-badge">Coursera</span></div>
       <div class="cert-item"><span class="cert-name">Certificate of Learning — NGSPICE</span><span class="cert-badge">NPTEL</span></div>
     </div>
-
-    <h3 style="font-size:1.05rem;font-weight:700;margin:2.5rem 0 0.75rem;color:var(--text)">🔬 Research & Publications</h3>
+    <h3 style="font-size:1rem;font-weight:700;margin:2.25rem 0 0.65rem;color:var(--text)">🔬 Research & Publications</h3>
     <div class="research-nums">
       <div class="res-card"><div class="res-num">8+</div><div class="res-label">Publications</div></div>
       <div class="res-card"><div class="res-num">2</div><div class="res-label">Patents</div></div>
-      <div class="res-card"><div class="res-num">5+</div><div class="res-label">Years Research</div></div>
+      <div class="res-card"><div class="res-num">5+</div><div class="res-label">Yrs Research</div></div>
       <div class="res-card"><div class="res-num">PhD</div><div class="res-label">Completed 2024</div></div>
     </div>
-
-    <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem">Selected publications:</p>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.75rem">Selected publications:</p>
     <ul class="pub-list">
       <li>A New Fast Access Low Power Multilevel Cache Architecture</li>
       <li>Modelling and Analysis of Modified Baugh-Wooley Multiplier using Gate Diffusion Input and Improved Shannon Adder</li>
@@ -673,15 +474,51 @@
       <li>Design of Programmable Marine Metal Detector Using UniFi Controller</li>
       <li>Power and Performance Efficient Secondary Cache using Tag Bloom Architecture</li>
     </ul>
-    <p style="font-size:0.88rem;color:var(--text-muted);margin-top:1.25rem;margin-bottom:0.5rem">Patents:</p>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin:1.1rem 0 0.5rem">Patents:</p>
     <ul class="pub-list">
       <li>🔒 Accurate Vibrational Spectroscopic Wavenumber Determination System</li>
       <li>🔒 Sensor Based UAV Mapping for Precision Agriculture</li>
     </ul>
+
+    <h3 style="font-size:1rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--text)">💬 Recommendations</h3>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="rec-quote">"She has taken no time in understanding any feature or topic, however technical it may sound, and has that capability to simplify it for people to understand and grasp. She has showcased first principle thinking by recommending ideas that address the core customer problem."</div>
+        <div class="rec-author">
+          <div class="rec-avatar">NK</div>
+          <div>
+            <div class="rec-name">Navin Kumar</div>
+            <div class="rec-role">Product Manager, Oncehub · worked with Janeera at Kovai.co</div>
+          </div>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-quote">"Janeera's ability to simplify complex technical subjects into clear, accessible documentation is unparalleled. Her commitment to excellence and teamwork has significantly elevated our projects. Beyond her technical prowess, Janeera inspires her peers with a forward-thinking approach."</div>
+        <div class="rec-author">
+          <div class="rec-avatar">BK</div>
+          <div>
+            <div class="rec-name">Biju K</div>
+            <div class="rec-role">Content Strategy and Leadership · managed Janeera directly</div>
+          </div>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-quote">"Janeera has consistently demonstrated an outstanding ability to overcome unexpected challenges and ensure the team not only meets deadlines but exceeds expectations. Her passion for the products she works on has driven team morale and inspired a collaborative atmosphere."</div>
+        <div class="rec-author">
+          <div class="rec-avatar">PS</div>
+          <div>
+            <div class="rec-name">Preethi Selvaraj</div>
+            <div class="rec-role">Senior Technical Writer · worked with Janeera on the same team</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:1.75rem">
+      <a href="https://www.linkedin.com/in/janeera" target="_blank" style="display:inline-block;border:2px solid var(--teal);color:var(--teal);padding:0.6rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:all 0.18s" onmouseover="this.style.background='var(--teal)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--teal)'">View all recommendations on LinkedIn →</a>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <p class="section-label">Get in Touch</p>
@@ -695,24 +532,24 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2026 Janeera D A · Built with HTML & hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
 </footer>
 
 <script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
 function filterTimeline(type, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.tl-item').forEach(item => {
-    if (type === 'all' || item.dataset.type === type) {
-      item.classList.remove('hidden');
-    } else {
-      item.classList.add('hidden');
-    }
+    item.classList.toggle('hidden', type !== 'all' && item.dataset.type !== type);
   });
 }
-
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
