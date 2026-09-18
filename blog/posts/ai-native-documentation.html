@@ -91,6 +91,7 @@
   .post-footer a { color: var(--teal); font-weight: 600; text-decoration: none; }
   .coffee-link { color: var(--gold); font-weight: 700; text-decoration: none; font-size: 0.82rem; border: 1.5px solid var(--gold); padding: 0.35rem 0.9rem; border-radius: 999px; transition: all 0.18s; white-space: nowrap; }
   .coffee-link:hover { background: var(--gold); color: #1a2e35; }
+  .post-comments { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 3rem; }
 
   /* ── FOOTER (matches homepage) ── */
   footer { background: var(--teal-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.25rem 1.5rem; font-size: 0.8rem; }
@@ -171,6 +172,38 @@
   <a href="../index.html">&larr; More posts</a>
   <a class="coffee-link" href="https://buymeacoffee.com/janeera" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 </div>
+
+<section class="post-comments">
+  <!--
+    Comments + reactions (Giscus, built on GitHub Discussions — free, no backend to run).
+    One-time setup, done once for the whole site (see README, "Comments" section):
+      1. Confirm Discussions is turned on for this repo (Settings > General > Features).
+      2. Install the giscus app on this repo: https://github.com/apps/giscus
+      3. Configure at https://giscus.app (pick the "Comments" discussion category,
+         mapping = pathname), then copy the repo-id and category-id it gives you
+         into every data-repo-id / data-category-id below.
+      Use the SAME two IDs in this file, the other 3 posts, and post-template.html
+      for future posts, then this comment block can be deleted.
+    Visitors react and comment with their own GitHub account; moderate from the
+    repo's Discussions tab, same as a GitHub issue or PR.
+  -->
+  <script src="https://giscus.app/client.js"
+    data-repo="janeera-da/Professional-Portfolio"
+    data-repo-id="R_kgDOStk_9A"
+    data-category="Comments"
+    data-category-id="DIC_kwDOStk_9M4DF4Cn"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</section>
 
 <footer>
   <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
