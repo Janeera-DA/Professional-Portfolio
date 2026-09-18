@@ -1,0 +1,9 @@
+# Everything is public and intended to be findable, including by AI
+# crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot, etc.).
+# Nothing here is disallowed on purpose, this is a portfolio site meant
+# to be seen and cited.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://janeera-da.github.io/Professional-Portfolio/sitemap.xml
