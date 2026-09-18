@@ -93,6 +93,7 @@
 <section class="blog-hero">
   <h1>Blog</h1>
   <p>Notes on documentation, AI-augmented workflows, and the tools behind the craft.</p>
+  <p id="visitor-count" style="margin-top:0.75rem"></p>
 </section>
 
 <main class="container">
@@ -120,6 +121,23 @@
 <footer>
   <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
 </footer>
+
+<!--
+  Visitor counter (GoatCounter — free, replace MYCODE with your site code
+  after signing up, see the README). Shows views of THIS page.
+-->
+<script>
+  var gcTimer = setInterval(function () {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(gcTimer);
+      window.goatcounter.visit_count({
+        append: '#visitor-count',
+        style: 'div{display:inline-block;color:rgba(255,255,255,0.85);font-size:0.8rem;} #gcvc-for{margin-right:4px;}'
+      });
+    }
+  }, 100);
+</script>
+<script data-goatcounter="https://MYCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script>
 function toggleMenu() {
