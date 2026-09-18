@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Building an Agent That Audits Documentation, With a Human Still Deciding What Ships | Janeera D A</title>
+<meta name="description" content="Turning a one-off experiment with an MCP-connected AI model into a repeatable agentic workflow for documentation maintenance, with a human review gate that never gets skipped." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://janeera-da.github.io/Professional-Portfolio/blog/posts/agentic-documentation-workflow.html" />
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Building an Agent That Audits Documentation, With a Human Still Deciding What Ships" />
+<meta property="og:description" content="Turning a one-off experiment with an MCP-connected AI model into a repeatable agentic workflow for documentation maintenance, with a human review gate that never gets skipped." />
+<meta property="og:url" content="https://janeera-da.github.io/Professional-Portfolio/blog/posts/agentic-documentation-workflow.html" />
+<meta property="og:site_name" content="Janeera D A" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Building an Agent That Audits Documentation, With a Human Still Deciding What Ships" />
+<meta name="twitter:description" content="Turning a one-off experiment with an MCP-connected AI model into a repeatable agentic workflow for documentation maintenance, with a human review gate that never gets skipped." />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building an Agent That Audits Documentation, With a Human Still Deciding What Ships",
+  "description": "Turning a one-off experiment with an MCP-connected AI model into a repeatable agentic workflow for documentation maintenance, with a human review gate that never gets skipped.",
+  "datePublished": "2026-09-01",
+  "keywords": "AI, MCP, Agents, Documentation",
+  "url": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/agentic-documentation-workflow.html",
+  "author": {
+    "@type": "Person",
+    "name": "Janeera D A",
+    "url": "https://janeera-da.github.io/Professional-Portfolio/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Janeera D A"
+  },
+  "mainEntityOfPage": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/agentic-documentation-workflow.html"
+}
+</script>
+<style>
+  :root {
+    --teal: #0d6e8a;
+    --teal-dark: #085068;
+    --teal-light: #e1f5ee;
+    --teal-mid: #1d9e75;
+    --gold: #c9952a;
+    --gold-light: #faeeda;
+    --text: #1a2e35;
+    --text-muted: #5a7280;
+    --bg: #ffffff;
+    --bg-soft: #f7fbfc;
+    --border: #d4e8ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; font-size: 16px; }
+
+  /* ── NAV (matches homepage) ── */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--teal); display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; height: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .nav-logo { color: #fff; font-weight: 700; font-size: 1.05rem; white-space: nowrap; text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 0.1rem; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; transition: all 0.18s; white-space: nowrap; }
+  .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.15); color: #fff; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.2s; }
+  .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--teal-dark); flex-direction: column; padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 99; }
+  .mobile-menu a { color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.85rem 1.5rem; font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08); display: block; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu.open { display: flex; }
+
+  /* ── POST HEADER ── */
+  .post-header { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 0; }
+  .back-link { font-size: 0.85rem; color: var(--teal); text-decoration: none; font-weight: 600; }
+  .post-header h1 { font-size: 2rem; font-weight: 800; color: var(--text); margin: 1rem 0 0.6rem; line-height: 1.25; }
+  .post-meta-line { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+  .post-tags { display: flex; gap: 0.4rem; margin-bottom: 2rem; }
+  .pill { background: var(--teal-light); color: var(--teal-dark); padding: 0.22rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+
+  /* ── POST BODY ── */
+  .post-body { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+  .post-body p { font-size: 0.98rem; color: var(--text); margin-bottom: 1.2rem; }
+  .post-body h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin: 2.2rem 0 0.85rem; }
+  .post-body blockquote { margin: 1.75rem 0; padding: 1.25rem 1.5rem; background: #fff; border-radius: 12px; border-left: 4px solid var(--gold); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 0.95rem; }
+
+  .post-footer { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; border-top: 1px solid var(--border); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+  .post-footer a { color: var(--teal); font-weight: 600; text-decoration: none; }
+  .coffee-link { color: var(--gold); font-weight: 700; text-decoration: none; font-size: 0.82rem; border: 1.5px solid var(--gold); padding: 0.35rem 0.9rem; border-radius: 999px; transition: all 0.18s; white-space: nowrap; }
+  .coffee-link:hover { background: var(--gold); color: #1a2e35; }
+
+  /* ── FOOTER (matches homepage) ── */
+  footer { background: var(--teal-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.25rem 1.5rem; font-size: 0.8rem; }
+  footer a { color: var(--gold); text-decoration: none; }
+  .visitor-line { margin-top: 0.35rem; font-size: 0.72rem; color: rgba(255,255,255,0.4); }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .post-header h1 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../../index.html">Janeera <span>D A</span></a>
+  <div class="nav-links">
+    <a href="../../index.html#about">About</a>
+    <a href="../../index.html#experience">Experience</a>
+    <a href="../../index.html#skills">Skills</a>
+    <a href="../../index.html#achievements">Achievements</a>
+    <a href="../index.html" class="active">Blog</a>
+    <a href="../../index.html#contact">Contact</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../../index.html#about" onclick="closeMenu()">About</a>
+  <a href="../../index.html#experience" onclick="closeMenu()">Experience</a>
+  <a href="../../index.html#skills" onclick="closeMenu()">Skills</a>
+  <a href="../../index.html#achievements" onclick="closeMenu()">Achievements</a>
+  <a href="../index.html" onclick="closeMenu()">Blog</a>
+  <a href="../../index.html#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<div class="post-header">
+  <a class="back-link" href="../index.html">&larr; Back to Blog</a>
+  <h1>Building an Agent That Audits Documentation, With a Human Still Deciding What Ships</h1>
+  <div class="post-meta-line">September 2026 · Janeera D A · 3 min read</div>
+  <div class="post-tags">
+    <span class="pill">AI</span>
+    <span class="pill">MCP</span>
+    <span class="pill">Agents</span>
+  </div>
+</div>
+
+<article class="post-body">
+  <p>I already <a href="ai-prd-mcp-doc-impact.html">wrote about one specific run of this</a>: I fed a PRD to an AI model connected to our documentation through MCP, asked it which articles a new feature would touch, and checked its work. It flagged 36 articles. I only needed to update 18.</p>
+
+  <p>That was one experiment, run by hand. What I'm building now is the actual workflow behind it, one an agent can run on its own instead of me kicking it off every time a feature ships.</p>
+
+  <h2>The part I don't want to automate</h2>
+  <p>Keeping a large knowledge base accurate is relentless. Products change faster than any writer can track by hand, gaps open quietly, and articles go stale between releases. AI can genuinely help with that. But the naive version, pointing a model at your docs and letting it publish, doesn't fix the problem. It just scales mistakes at machine speed.</p>
+
+  <p>The part worth automating is the labor: finding the gaps, flagging what's gone stale, drafting a first pass. The part I'm not willing to automate is deciding what's actually correct and what ships.</p>
+
+  <h2>How it's structured</h2>
+  <p>The agent connects to the knowledge base through MCP, the same protocol behind the PRD experiment, and does three things: analyzes search and support-ticket patterns to find coverage gaps, flags articles that have drifted out of date, and drafts proposed changes against the real, current content.</p>
+
+  <p>None of that publishes on its own. Every proposed change goes through a review gate before it touches the live docs, the same review I did by hand in that first experiment, just with a defined process around it instead of me improvising each time.</p>
+
+  <h2>What I still need to find out</h2>
+  <p>I don't have full numbers yet on how much time this actually saves at scale, or what share of the agent's drafts get accepted, edited, or thrown out. That's the next thing I'm tracking, and I'll share it honestly, including the mistakes the review gate catches, once I have a real sample to report on.</p>
+
+  <blockquote>The agent does the labor. The human still owns the judgment call. That boundary is the whole point, not something to apologize for.</blockquote>
+
+  <p>If you're running anything similar with MCP and your own docs, I'd like to hear where your review gate sits and what it's caught so far.</p>
+</article>
+
+<div class="post-footer">
+  <a href="../index.html">&larr; More posts</a>
+  <a class="coffee-link" href="https://buymeacoffee.com/janeera" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+</div>
+
+<footer>
+  <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  <p class="visitor-line"><span id="visitor-count"></span></p>
+</footer>
+
+<!--
+  Visitor counter (GoatCounter — free, already set to janeera-da.goatcounter.com,
+  see the README). Shows views of THIS post.
+-->
+<script data-goatcounter="https://janeera-da.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('visitor-count');
+  if (!el) return;
+  fetch('https://janeera-da.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) el.textContent = d.count + ' views of this post'; })
+    .catch(function () {});
+})();
+</script>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+</script>
+</body>
+</html>
