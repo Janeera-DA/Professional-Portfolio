@@ -5,6 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AI Flagged 36 Articles. Only 18 Needed Changing. | Janeera D A</title>
 <meta name="description" content="A human-in-the-loop experiment: feeding a PRD to an AI model connected via MCP to flag documentation impacted by a new feature, then checking its work." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-prd-mcp-doc-impact.html" />
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI Flagged 36 Articles. Only 18 Needed Changing." />
+<meta property="og:description" content="A human-in-the-loop experiment: feeding a PRD to an AI model connected via MCP to flag documentation impacted by a new feature, then checking its work." />
+<meta property="og:url" content="https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-prd-mcp-doc-impact.html" />
+<meta property="og:site_name" content="Janeera D A" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="AI Flagged 36 Articles. Only 18 Needed Changing." />
+<meta name="twitter:description" content="A human-in-the-loop experiment: feeding a PRD to an AI model connected via MCP to flag documentation impacted by a new feature, then checking its work." />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI Flagged 36 Articles. Only 18 Needed Changing.",
+  "description": "A human-in-the-loop experiment: feeding a PRD to an AI model connected via MCP to flag documentation impacted by a new feature, then checking its work.",
+  "datePublished": "2026-09-01",
+  "keywords": "AI, Documentation, MCP",
+  "url": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-prd-mcp-doc-impact.html",
+  "author": {
+    "@type": "Person",
+    "name": "Janeera D A",
+    "url": "https://janeera-da.github.io/Professional-Portfolio/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Janeera D A"
+  },
+  "mainEntityOfPage": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-prd-mcp-doc-impact.html"
+}
+</script>
 <style>
   :root {
     --teal: #0d6e8a;
@@ -58,6 +93,7 @@
   /* ── FOOTER (matches homepage) ── */
   footer { background: var(--teal-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.25rem 1.5rem; font-size: 0.8rem; }
   footer a { color: var(--gold); text-decoration: none; }
+  .visitor-line { margin-top: 0.35rem; font-size: 0.72rem; color: rgba(255,255,255,0.4); }
 
   @media (max-width: 720px) {
     .nav-links { display: none; }
@@ -94,7 +130,7 @@
 <div class="post-header">
   <a class="back-link" href="../index.html">&larr; Back to Blog</a>
   <h1>AI Flagged 36 Articles. Only 18 Needed Changing.</h1>
-  <div class="post-meta-line">September 2026 · Janeera D A · 4 min read · <span id="visitor-count"></span></div>
+  <div class="post-meta-line">September 2026 · Janeera D A · 4 min read</div>
   <div class="post-tags">
     <span class="pill">AI</span>
     <span class="pill">Documentation</span>
@@ -132,24 +168,26 @@
 
 <footer>
   <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  <p class="visitor-line"><span id="visitor-count"></span></p>
 </footer>
 
 <!--
-  Visitor counter (GoatCounter — free, replace MYCODE with your site code
-  after signing up, see the README). Shows views of THIS post.
+  Visitor counter (GoatCounter — free, already set to janeera-da.goatcounter.com,
+  see the README). count.js records the visit; the script below reads the
+  count back as plain JSON and renders it as plain text, no widget box.
+  Shows views of THIS post.
 -->
-<script>
-  var gcTimer = setInterval(function () {
-    if (window.goatcounter && window.goatcounter.visit_count) {
-      clearInterval(gcTimer);
-      window.goatcounter.visit_count({
-        append: '#visitor-count',
-        style: 'div{display:inline;color:var(--text-muted);font-size:inherit;} #gcvc-for{margin-right:4px;}'
-      });
-    }
-  }, 100);
-</script>
 <script data-goatcounter="https://janeera-da.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('visitor-count');
+  if (!el) return;
+  fetch('https://janeera-da.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) el.textContent = d.count + ' views of this post'; })
+    .catch(function () {});
+})();
+</script>
 
 <script>
 function toggleMenu() {
