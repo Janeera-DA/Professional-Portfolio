@@ -4,6 +4,52 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Janeera D A — Senior Technical Writer</title>
+<meta name="description" content="Janeera D A is a Senior Lead Technical Writer at Kovai.co, leading documentation for Document360 and Floik. 10+ years in SaaS and developer documentation, docs-as-code, and AI-augmented documentation workflows." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://janeera-da.github.io/Professional-Portfolio/" />
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Janeera D A — Senior Technical Writer" />
+<meta property="og:description" content="Senior Lead Technical Writer at Kovai.co, leading documentation for Document360 and Floik. Docs-as-code, API documentation, and AI-augmented documentation workflows." />
+<meta property="og:url" content="https://janeera-da.github.io/Professional-Portfolio/" />
+<meta property="og:site_name" content="Janeera D A" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Janeera D A — Senior Technical Writer" />
+<meta name="twitter:description" content="Senior Lead Technical Writer at Kovai.co, leading documentation for Document360 and Floik. Docs-as-code, API documentation, and AI-augmented documentation workflows." />
+
+<!-- Structured data, helps search engines and AI answer/search tools describe you accurately -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Janeera D A",
+  "jobTitle": "Senior Lead Technical Writer",
+  "description": "Senior Lead Technical Writer at Kovai.co, leading documentation for Document360 and Floik. 10+ years in SaaS and developer documentation, docs-as-code, and AI-augmented documentation workflows.",
+  "url": "https://janeera-da.github.io/Professional-Portfolio/",
+  "email": "mailto:janeerada@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/janeera"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Kovai.co"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Coimbatore",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "knowsAbout": [
+    "Technical Writing",
+    "Documentation Strategy",
+    "Docs-as-Code",
+    "API Documentation",
+    "AI-Augmented Documentation Workflows"
+  ]
+}
+</script>
 <style>
   :root {
     --teal: #0d6e8a;
@@ -536,28 +582,28 @@
 
 <footer>
   <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
-  <p id="visitor-count" style="margin-top:0.4rem"></p>
+  <p style="margin-top:0.35rem;font-size:0.72rem;color:rgba(255,255,255,0.4)"><span id="visitor-count"></span></p>
 </footer>
 
 <!--
   Visitor counter (GoatCounter — free, no signup needed to view, but YOU need a
-  free account to collect counts). Replace MYCODE below with your GoatCounter
+  free account to collect counts). Already set to janeera-da.goatcounter.com, your GoatCounter
   site code after signing up at https://www.goatcounter.com/signup — see the
-  README for the two-minute setup. This shows the TOTAL site-wide count.
+  README. count.js records the visit; the script below reads the count back
+  as plain JSON and renders it as plain text, no widget box. This shows the
+  TOTAL site-wide count.
 -->
-<script>
-  var gcTimer = setInterval(function () {
-    if (window.goatcounter && window.goatcounter.visit_count) {
-      clearInterval(gcTimer);
-      window.goatcounter.visit_count({
-        append: '#visitor-count',
-        path: 'TOTAL',
-        style: 'div{display:inline-block;color:rgba(255,255,255,0.5);font-size:0.75rem;} #gcvc-for{margin-right:4px;}'
-      });
-    }
-  }, 100);
-</script>
 <script data-goatcounter="https://janeera-da.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('visitor-count');
+  if (!el) return;
+  fetch('https://janeera-da.goatcounter.com/counter/TOTAL.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) el.textContent = d.count + ' site visits'; })
+    .catch(function () {});
+})();
+</script>
 
 <script>
 function toggleMenu() {
