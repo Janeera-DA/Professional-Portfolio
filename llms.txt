@@ -1,0 +1,15 @@
+# Janeera D A
+
+> Senior Lead Technical Writer at Kovai.co, leading documentation for Document360 and Floik. 10+ years in SaaS and developer documentation, docs-as-code, and AI-augmented documentation workflows.
+
+## Pages
+
+- [Portfolio](https://janeera-da.github.io/Professional-Portfolio/): Professional background, experience, skills, achievements, and contact details.
+- [Blog](https://janeera-da.github.io/Professional-Portfolio/blog/): Articles on documentation strategy and AI-augmented documentation workflows.
+
+## Blog posts
+
+- [AI Flagged 36 Articles. Only 18 Needed Changing.](https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-prd-mcp-doc-impact.html): A human-in-the-loop experiment feeding a PRD to an AI model connected via MCP to flag documentation impacted by a new feature, then checking its work by hand.
+- [Writing Documentation Machines Can Actually Read](https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-native-documentation.html): A practical method for restructuring a human-first knowledge base, semantic structure, chunk boundaries, metadata, and llms.txt, so retrieval systems and agents can read it too.
+- [What Do You Measure When AI Answers Before Anyone Opens the Page](https://janeera-da.github.io/Professional-Portfolio/blog/posts/documentation-metrics-ai-era.html): Why page views break down once AI assistants answer directly, and what metrics (answer accuracy, grounding rate, intent coverage, deflection) can replace them.
+- [Building an Agent That Audits Documentation, With a Human Still Deciding What Ships](https://janeera-da.github.io/Professional-Portfolio/blog/posts/agentic-documentation-workflow.html): Turning a one-off PRD experiment into a repeatable agentic workflow, where an MCP-connected agent finds gaps and drafts fixes, and a human review gate decides what ships.
