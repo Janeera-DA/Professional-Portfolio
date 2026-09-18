@@ -536,7 +536,28 @@
 
 <footer>
   <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  <p id="visitor-count" style="margin-top:0.4rem"></p>
 </footer>
+
+<!--
+  Visitor counter (GoatCounter — free, no signup needed to view, but YOU need a
+  free account to collect counts). Replace MYCODE below with your GoatCounter
+  site code after signing up at https://www.goatcounter.com/signup — see the
+  README for the two-minute setup. This shows the TOTAL site-wide count.
+-->
+<script>
+  var gcTimer = setInterval(function () {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(gcTimer);
+      window.goatcounter.visit_count({
+        append: '#visitor-count',
+        path: 'TOTAL',
+        style: 'div{display:inline-block;color:rgba(255,255,255,0.5);font-size:0.75rem;} #gcvc-for{margin-right:4px;}'
+      });
+    }
+  }, 100);
+</script>
+<script data-goatcounter="https://MYCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script>
 function toggleMenu() {
