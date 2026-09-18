@@ -4,7 +4,56 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Blog | Janeera D A</title>
-<meta name="description" content="Notes on documentation, AI-augmented workflows, and the tools behind the craft." />
+<meta name="description" content="Notes on documentation, AI-augmented workflows, and the tools behind the craft, by Janeera D A, Senior Lead Technical Writer at Kovai.co." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://janeera-da.github.io/Professional-Portfolio/blog/" />
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Blog | Janeera D A" />
+<meta property="og:description" content="Notes on documentation, AI-augmented workflows, and the tools behind the craft." />
+<meta property="og:url" content="https://janeera-da.github.io/Professional-Portfolio/blog/" />
+<meta property="og:site_name" content="Janeera D A" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Blog | Janeera D A" />
+<meta name="twitter:description" content="Notes on documentation, AI-augmented workflows, and the tools behind the craft." />
+
+<!-- Structured data: lists this page's posts so search/AI tools can see the whole blog at a glance -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Janeera D A's Blog",
+  "url": "https://janeera-da.github.io/Professional-Portfolio/blog/",
+  "author": {
+    "@type": "Person",
+    "name": "Janeera D A",
+    "url": "https://janeera-da.github.io/Professional-Portfolio/"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Building an Agent That Audits Documentation, With a Human Still Deciding What Ships",
+      "url": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/agentic-documentation-workflow.html"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "What Do You Measure When AI Answers Before Anyone Opens the Page",
+      "url": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/documentation-metrics-ai-era.html"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Writing Documentation Machines Can Actually Read",
+      "url": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-native-documentation.html"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "AI Flagged 36 Articles. Only 18 Needed Changing.",
+      "url": "https://janeera-da.github.io/Professional-Portfolio/blog/posts/ai-prd-mcp-doc-impact.html"
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --teal: #0d6e8a;
@@ -55,6 +104,7 @@
   /* ── FOOTER (matches homepage) ── */
   footer { background: var(--teal-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.25rem 1.5rem; font-size: 0.8rem; }
   footer a { color: var(--gold); text-decoration: none; }
+  .visitor-line { margin-top: 0.35rem; font-size: 0.72rem; color: rgba(255,255,255,0.4); }
 
   @media (max-width: 720px) {
     .nav-links { display: none; }
@@ -93,7 +143,6 @@
 <section class="blog-hero">
   <h1>Blog</h1>
   <p>Notes on documentation, AI-augmented workflows, and the tools behind the craft.</p>
-  <p id="visitor-count" style="margin-top:0.75rem"></p>
 </section>
 
 <main class="container">
@@ -103,6 +152,39 @@
     2. Add a new .post-card block below, newest first.
   -->
   <div class="post-list">
+
+    <a class="post-card" href="posts/agentic-documentation-workflow.html">
+      <div class="post-meta">September 2026 · 3 min read</div>
+      <div class="post-title">Building an Agent That Audits Documentation, With a Human Still Deciding What Ships</div>
+      <div class="post-excerpt">Turning a one-off PRD experiment into a repeatable workflow where an MCP-connected agent finds the gaps and drafts the fix, and a human review gate decides what actually ships.</div>
+      <div class="post-tags">
+        <span class="pill">AI</span>
+        <span class="pill">MCP</span>
+        <span class="pill">Agents</span>
+      </div>
+    </a>
+
+    <a class="post-card" href="posts/documentation-metrics-ai-era.html">
+      <div class="post-meta">September 2026 · 3 min read</div>
+      <div class="post-title">What Do You Measure When AI Answers Before Anyone Opens the Page</div>
+      <div class="post-excerpt">Page views assume a person reads the article. When an AI assistant answers directly, that assumption breaks, and a new set of metrics is needed to prove the docs are still working.</div>
+      <div class="post-tags">
+        <span class="pill">AI</span>
+        <span class="pill">Documentation</span>
+        <span class="pill">Analytics</span>
+      </div>
+    </a>
+
+    <a class="post-card" href="posts/ai-native-documentation.html">
+      <div class="post-meta">September 2026 · 3 min read</div>
+      <div class="post-title">Writing Documentation Machines Can Actually Read</div>
+      <div class="post-excerpt">A practical look at restructuring a human-first knowledge base, semantics, chunk boundaries, and llms.txt, so retrieval systems and agents can read it too.</div>
+      <div class="post-tags">
+        <span class="pill">AI</span>
+        <span class="pill">Documentation</span>
+        <span class="pill">Semantic Structure</span>
+      </div>
+    </a>
 
     <a class="post-card" href="posts/ai-prd-mcp-doc-impact.html">
       <div class="post-meta">September 2026 · 4 min read</div>
@@ -120,24 +202,26 @@
 
 <footer>
   <p>© 2026 Janeera D A · Built with HTML · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  <p class="visitor-line"><span id="visitor-count"></span></p>
 </footer>
 
 <!--
-  Visitor counter (GoatCounter — free, replace MYCODE with your site code
-  after signing up, see the README). Shows views of THIS page.
+  Visitor counter (GoatCounter — free, already set to janeera-da.goatcounter.com,
+  see the README). count.js records the visit; the script below reads the
+  count back as plain JSON and renders it as plain text, no widget box.
+  Shows views of THIS page.
 -->
-<script>
-  var gcTimer = setInterval(function () {
-    if (window.goatcounter && window.goatcounter.visit_count) {
-      clearInterval(gcTimer);
-      window.goatcounter.visit_count({
-        append: '#visitor-count',
-        style: 'div{display:inline-block;color:rgba(255,255,255,0.85);font-size:0.8rem;} #gcvc-for{margin-right:4px;}'
-      });
-    }
-  }, 100);
-</script>
 <script data-goatcounter="https://janeera-da.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('visitor-count');
+  if (!el) return;
+  fetch('https://janeera-da.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) el.textContent = d.count + ' views of this page'; })
+    .catch(function () {});
+})();
+</script>
 
 <script>
 function toggleMenu() {
